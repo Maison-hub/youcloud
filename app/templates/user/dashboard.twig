@@ -1,0 +1,67 @@
+{% extends "base.twig" %}
+
+{% block morehead %} 
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
+    <script type="module" crossorigin src="./assets/js/index-Cm0iwQxT.js"></script>
+
+{% endblock %}
+{% block title %}Cloud de {{user.name}} {% endblock %}
+
+{% block content %}
+
+    <div class="flex col gap-36 ">
+        <div class="userCard">
+            ☁️ Cloud de {{ user.name }}
+        </div>
+
+        <div class="listfile gap-12">
+            {% for file in files %}
+                <div class="file" data-file="/getfile/{{ file.id }}" data-extention="{{ file.original_name|split('.')|last }}">
+                    <div class="preview"> 
+                    </div>
+
+                    <p>{{ file.original_name }}</p>
+
+                    <div class="flex row gap-12">
+
+                        <a href="/download/{{ file.id }}">Télécharger</a>
+
+                        <a href="/delete/{{ file.id }}">Supprimer</a>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <style>
+
+        #content{
+            width: 100%;
+            padding: 20px 102px;
+        }
+        h2{
+            margin: 12px 0;
+        }
+        body{
+            min-height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        form{
+            flex-direction: column;
+            width: 100%;
+            max-width: 550px;
+            min-width: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--surface);
+            border-radius: 18px;
+        }
+        textarea{
+            height: 200px;
+        }
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.twig" %}
+
+{% block title %}Ajouter votre message{% endblock %}
+
+{% block content %}
+
+
+    <form action="{{ url_for('upload-data')}}" method="POST" enctype="multipart/form-data"> 
+        <h2>Upload un fichier</h2>
+        <div class="field">
+            <label for="file">Fichier</label>
+            <input type="file" id="file" name="file"  accept=".obj, .glb, .gltf, .stl" placeholder="Entrez votre fichier" required >
+        <button type="submit" class="btn">Upload</button>
+
+        {% if errors is defined %}
+            <div class="errors">
+                {% for error in errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </form>
+
+
+    <style>
+
+        #content{
+            width: 100%;
+        }
+        h2{
+            margin: 12px 0;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            flex-direction: column;
+            width: 100%;
+            max-width: 550px;
+            min-width: 200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--surface);
+            border-radius: 18px;
+        }
+        textarea{
+            height: 200px;
+        }
+{% endblock %}

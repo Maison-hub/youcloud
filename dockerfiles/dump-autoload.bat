@@ -1,0 +1,1 @@
+docker exec -it [l'id de votre continer] sh -c  "composer dump-autoload"

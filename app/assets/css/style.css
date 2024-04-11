@@ -1,0 +1,87 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bg : #00000C;
+    --white: #EADBFF;
+    --prim: #220070;
+    --surface: #17003a71;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1.5px solid var(--white);
+    border-radius: 12px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: var(--white);
+}
+
+textarea{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1.5px solid var(--white);
+    border-radius: 12px;
+    box-sizing: border-box;
+    background-color: transparent;
+    resize: vertical;
+    color: var(--white);
+}
+
+.btn{
+    width: 100%;
+    padding: 14px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 12px;
+    box-sizing: border-box;
+    background-color: var(--prim);
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.flex{
+    display: flex;
+}
+.col{
+    flex-direction: column;
+}
+.row{
+    flex-direction: row;
+}
+.gap-12{
+    gap: 12px;
+}
+.gap-24{
+    gap: 24px;
+}
+.gap-36{
+    gap: 36px;
+}
+.gap-48{
+    gap: 48px;
+}

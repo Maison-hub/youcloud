@@ -21,6 +21,10 @@ class ControllerUpload{
     public function doIt(Request $request, Response $response): Response{
 
         $uploadedFiles = $request->getUploadedFiles();
+        $data = $request->getParsedBody();
+
+        $title = $data['title'] ? $data['title'] : 'titre';
+        $description = $data['description'] ? $data['description'] : 'une description';
 
         if (!empty($uploadedFiles['file'])) {
             $uploadedFile = $uploadedFiles['file'];
@@ -34,12 +38,11 @@ class ControllerUpload{
                 $isConnected = $_SESSION['isConnected'] ? true : false;
                 if($isConnected && isset($_SESSION['userid'])){
                     $userId = $_SESSION['userid'];
-                    $title = 'titre';
-                    $description = 'une description';
                     $location = $filename;
                     $originalName = $uploadedFile->getClientFilename();
                     $this->uploadService->addFile($userId, $title, $description, $location, $type, $originalName);
                     $response->getBody()->write('fichier ajouté');
+                    return $response->withHeader('Location', '/dashboard')->withStatus(302);
                 }
             } else {
                 $response->getBody()->write('erreur');

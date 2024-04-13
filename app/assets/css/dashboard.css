@@ -1,3 +1,8 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
 .userCard{
     font-size: 28px;
     background-color: rgba(255, 255, 255, 0.12);
@@ -9,22 +14,54 @@
 
 .listfile{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin: 12px 0;
+
 }
 
 .preview {
-    width: 800px;
-    height: 400px;
-    background-color: red;
+    width: 400px;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .file{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column;
     background-color: rgba(255, 255, 255, 0.12);
     padding: 12px;
+    border-radius: 24px;
+}
+
+.fileTitle{
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.fileDescription{
+    font-size: 16px;
+    color: #eadbffb7;
+
+}
+
+.fileBtn{
+    background-color: var(--white);
+    color: var(--bg);
+    padding: 12px;
     border-radius: 12px;
-    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 12px;
 }

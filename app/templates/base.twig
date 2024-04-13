@@ -6,10 +6,30 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="./assets/css/style.css"> 
     <link rel="icon" type="image/png" href="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
     {% block morehead %}{% endblock %}
     <title id="titre">{% block title %}{% endblock %}</title>
   </head>
   <body>
+    <header>
+      <div>
+      {% if isConnected == 1 %}
+        <a href="{{ url_for('dashboard')}}">🧊 votre dashboard </a>
+      {% else %}
+        🧊
+      {% endif %}
+      </div>
+
+      <nav>
+        <ul class="flex row gap-12">
+          {% if isConnected == 1 %}
+              <li><a href="{{ url_for('upload') }}">ajouter un fichier </a></li>
+              <li><a href="{{ url_for('logout') }}">Déconnexion</a></li>
+          {% else %}
+              <li><a href="{{ url_for('login') }}">Connexion</a></li>
+          {% endif %}
+        </ul>
+    </header>
     <div id="content">{% block content %}{% endblock %}</div>
     <footer>
       &copy; Copyright 2024 by Maison-hub

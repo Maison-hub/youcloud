@@ -14,10 +14,30 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     background-color: var(--bg);
     color: var(--white);
     -webkit-font-smoothing: antialiased;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav ul{
+    list-style-type: none;
+    background-color: var(--surface);
+    padding: 12px;
+}
+
+nav ul li a{
+    color: var(--bg);
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+a{
+    text-decoration: none;
+    color: var(--white);
 }
 
 input{
@@ -84,4 +104,22 @@ textarea{
 }
 .gap-48{
     gap: 48px;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.pad-12{
+    padding: 12px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 24px;
+    background-color: var(--surface);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

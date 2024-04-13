@@ -25,18 +25,16 @@ class ControllerAuthLogin{
 
         $success = $this->userService->verifyUser($username, $password);
         if ($success) {
-            // Redirigez l'utilisateur vers la page de connexion
-            $response->getBody()->write('vous etes connecté');
+
             $_SESSION['isConnected'] = true;
             $_SESSION['username'] = $username;
             $_SESSION['userid'] = $this->userService->getUserId($username);
+            return $response->withHeader('Location', '/dashboard')->withStatus(302);
         } else {
             // Redirigez l'utilisateur vers la page d'inscription avec un message d'erreur
             $response->getBody()->write("Mauvais identifiant");
         }
         return $response;
 
-        $view = Twig::fromRequest($request);
-        return $view->render($response, 'loginform.twig');
     }
 }

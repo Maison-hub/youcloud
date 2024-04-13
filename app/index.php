@@ -7,6 +7,10 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 
 use Slim\Routing\RouteCollectorProxy;
 
+use Twig\Extension\AbstractExtension;  
+use Twig\Extension\GlobalsInterface;
+
+
 
 //Middleware
 use youcloud\Middleware\Auth\AuthMiddleware;
@@ -32,6 +36,8 @@ $app = AppFactory::create();
 
 // Create Twig
 $twig = Twig::create(__DIR__.'/templates', ['cache' => false, 'debug' => true, 'strict_variables' => true]);
+$twig->offsetSet('isConnected', $_SESSION['isConnected']);
+
 
 // Add Twig-View Middleware
 $app->add(TwigMiddleware::create($app, $twig));
@@ -58,7 +64,6 @@ $app->get('/formulaire', \SlimDemo\Controllers\LivreOr\Formulaire::class.':doIt'
 $app->get('/login', \youcloud\Controllers\Auth\ControllerAuthLoginform::class.':doIt')->setName('login');
 //send login data
 $app->post('/login-data', \youcloud\Controllers\Auth\ControllerAuthLogin::class.':doIt')->setName('login-data');
-
 // page d inscription
 $app->get('/register', \youcloud\Controllers\Auth\ControllerAuthRegisterform::class.':doIt')->setName('register');
 //send register data

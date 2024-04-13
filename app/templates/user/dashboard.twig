@@ -13,25 +13,38 @@
         <div class="userCard">
             ☁️ Cloud de {{ user.name }}
         </div>
+        <div class="flex col gap-12">
+            <h2>Vos fichiers</h2>
 
-        <div class="listfile gap-12">
-            {% for file in files %}
-                <div class="file" data-file="/getfile/{{ file.id }}" data-extention="{{ file.original_name|split('.')|last }}">
-                    <div class="preview"> 
+            <div class="listfile">
+                {% for file in files %}
+                    <div class="file" data-file="/getfile/{{ file.id }}" data-extention="{{ file.original_name|split('.')|last }}">
+                        <div class="preview"> 
+                        </div>
+
+                        <div class="flex col gap-12 w-100 pad-12">
+                            <p class='fileTitle'>{{ file.title }}</p>
+                            <p class='fileDescription'>{{ file.description }}</p>
+                            <p class='fileOriginalName'>Nom original: {{ file.original_name }}</p>
+
+                        </div>
+                        <div class="flex row gap-12 w-100">
+
+                                <a href="/getfile/{{ file.id }}" class="w-100 fileBtn">
+                                    <span class="material-symbols-outlined">
+                                        download
+                                    </span>
+                                    Télécharger
+                                </a>
+
+                                <a href="/delete/{{ file.id }}"><span class="material-symbols-outlined fileBtn">delete</span></a>
+
+                            </div>
                     </div>
-
-                    <p>{{ file.original_name }}</p>
-
-                    <div class="flex row gap-12">
-
-                        <a href="/download/{{ file.id }}">Télécharger</a>
-
-                        <a href="/delete/{{ file.id }}">Supprimer</a>
-
-                    </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
+        
     </div>
 
 

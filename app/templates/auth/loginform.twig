@@ -29,11 +29,21 @@
 
     </form>
 
+        <div class="flex row gap-12">
+            <p>Pas de compte</p><a href="{{ url_for('register')}}">creer un compte</a>
+        </div>
+
 
     <style>
 
         #content{
             width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
         }
         h2{
             margin: 12px 0;
@@ -42,7 +52,7 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
         }
         form{
             flex-direction: column;

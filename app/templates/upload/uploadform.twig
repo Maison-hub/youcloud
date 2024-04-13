@@ -10,6 +10,15 @@
         <div class="field">
             <label for="file">Fichier</label>
             <input type="file" id="file" name="file"  accept=".obj, .glb, .gltf, .stl" placeholder="Entrez votre fichier" required >
+        </div>
+        <div class="field">
+            <label for="title">Titre</label>
+            <input id="title" name="title" required/>
+        </div>
+        <div class="field">
+            <label for="description">Description</label>
+            <input id="description" name="description" required/>
+        </div>
         <button type="submit" class="btn">Upload</button>
 
         {% if errors is defined %}
@@ -27,6 +36,12 @@
 
         #content{
             width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
         }
         h2{
             margin: 12px 0;
@@ -35,7 +50,7 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
         }
         form{
             flex-direction: column;

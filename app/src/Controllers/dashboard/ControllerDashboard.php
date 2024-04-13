@@ -28,9 +28,15 @@ class ControllerDashboard{
             $user = $this->userService->getUser($_SESSION['userid']);
 
             $userFiles = $this->uploadService->getFiles($_SESSION['userid']);
+
+            //inject js from vite build
+            $manifest = json_decode(file_get_contents(__DIR__.'/../../../assets/js/three/.vite/manifest.json'), true);
+            $jsPath = $manifest['index.html']['file'];
+
             $data = [
                 'user' => $user,
-                'files' => $userFiles
+                'files' => $userFiles,
+                'jsPath' => $jsPath,
             ];
         
             $view = Twig::fromRequest($request);

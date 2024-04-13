@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>
+
+    <div class="filelist flex col gap-36">
+
+      <div class="file flex row gap-24" data-file="eyeball.stl" data-extention="stl">
+        
+        <div class="preview">
+
+        </div>
+        <div>
+          <p>monfichier</p>
+        </div>
+      </div>
+
+      <div class="file flex row gap-24" data-file="huge_cubestl.stl" data-extention="stl">
+        
+        <div class="preview">
+
+        </div>
+        <div>
+          <p>monfichier</p>
+        </div>
+      </div>
+
+      <div class="file flex row gap-24" data-file="cube.stl" data-extention="stl">
+        <div class="preview">
+
+        </div>
+
+        <div>
+          <p>monfichier</p>
+        </div>
+      </div>
+
+      </div>
+    </div>
+    <style>
+      .preview {
+        width: 800px;
+        height: 400px;
+        background-color: red;
+      }
+      .flex{
+        display: flex;
+      }
+      .col{
+        flex-direction: column;
+      }
+      .row{
+        flex-direction: row;
+      }
+      .gap-12{
+        gap: 12px;
+      }
+      .gap-24{
+        gap: 24px;
+      }
+      .gap-36{
+        gap: 36px;
+      }
+      .gap-48{
+        gap: 48px;
+      }
+    </style>
+
+		<script type="module" src="/main.js"></script>
+	</body>
+</html>
